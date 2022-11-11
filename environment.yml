@@ -1,0 +1,7 @@
+name: Projectile-Motion-Simulator
+
+dependencies:
+  - python=3.9
+  - matplotlib=3.6.2
+  - numpy=1.23.4
+  - pip:
