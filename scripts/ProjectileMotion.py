@@ -1,9 +1,9 @@
-import numpy as np
-import matplotlib.pyplot as plt
 import PySimpleGUI as sg
-import time
+import matplotlib.pyplot as plt
+import numpy as np
 
-def openWindow(layout,):
+
+def openWindow(layout, ):
     sg.theme('DarkAmber')
     window = sg.Window("Second Window", layout, modal=True)
     while True:
@@ -12,6 +12,7 @@ def openWindow(layout,):
             break
 
     window.close()
+
 
 def main():
     sg.theme('DarkAmber')
@@ -23,7 +24,7 @@ def main():
         [sg.Text('Enter the drag coefficient'), sg.InputText()],
         [sg.Text('Enter the gravitational constant of your choosing'), sg.InputText()],
         [sg.Text('Enter the time interval of measurement'), sg.InputText()],
-        [sg.Button('Calculate'),sg.Button('Show Graph'), sg.Button('Close Graph'), sg.Button('Exit')]
+        [sg.Button('Calculate'), sg.Button('Show Graph'), sg.Button('Close Graph'), sg.Button('Exit')]
     ]
 
     window = sg.Window('Projectile Motion Calculator', layout, )
@@ -32,7 +33,7 @@ def main():
     calcLoop(window, plt)
 
 
-def calcLoop(window, plt):
+def calcLoop(window, plt, ):
     while True:
         event, values = window.read()
 
@@ -43,7 +44,7 @@ def calcLoop(window, plt):
                 [sg.Text('Calculations Complete')],
                 [sg.Button('Exit')]
             ]
-            openWindow(layout,)
+            openWindow(layout, )
 
             try:
                 M = float(values[0])
@@ -75,7 +76,6 @@ def calculations(M, g, V, ang, Cd, dt, window):
     vy = [V * np.sin(ang / 180 * np.pi)]
     x = [0]  # list for x and y position
     y = [0]
-
 
     # Drag force
     drag = Cd * V ** 2  # drag force
@@ -109,11 +109,11 @@ def calculations(M, g, V, ang, Cd, dt, window):
     plt.plot(x, y, 'r-')
     plt.ylabel("Vertical Displacement (m)")
     plt.xlabel("Horizontal Displacement (m)")
-
     # The last value of x should give the range of the projectile approximately.
+
+
 
     xDisplacement = ("Total x-displacement of projectile is {:3.1f}m".format(x[counter]))
     yDisplacement = ("Total y-displacement of projectile is {:3.1f}m".format(y[counter]))
 
-
-    return calcLoop(window, plt)
+    return calcLoop(window, plt, )
