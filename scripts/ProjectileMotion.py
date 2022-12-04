@@ -18,7 +18,7 @@ def main():
     sg.theme('DarkAmber')
 
     layout = [
-        [sg.Text('Enter the mass of the object'), sg.InputText()],
+        [sg.Text('Enter the mass of the object'), sg.InputText(key="-mass-")],
         [sg.Text('Enter the Velocity of the object'), sg.InputText()],
         [sg.Text('Enter the Initial angle of launch'), sg.InputText()],
         [sg.Text('Enter the drag coefficient'), sg.InputText()],
