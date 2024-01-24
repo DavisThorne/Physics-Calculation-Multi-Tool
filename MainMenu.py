@@ -10,6 +10,7 @@ calculations to use this as a superscript for physics calculations
 # Importing Libraries and other scripts
 import PySimpleGUI as sg
 from scripts import ProjectileMotion as projMot
+from scripts import EngineeringPhysics as engPhys
 
 if __name__ == "__main__":
     sg.theme('DarkAmber')  # Defining the theme of the window
@@ -17,6 +18,7 @@ if __name__ == "__main__":
     layout = [
         [sg.Text('Physics Calculation Multi-Tool')],
         [sg.Button('Projectile Motion')], [sg.Button('Simple Harmonic Motion', key='-SHM-')],
+        [sg.Button('Engineering Physics', key='-EngPhys-')],
         [sg.Button('Ok'), sg.Button('Exit')]
     ]
 
@@ -33,5 +35,8 @@ if __name__ == "__main__":
             projMot.main()
         elif event == '-SHM-':
             print('It worked')
+        elif event == '-EngPhys-':
+            engPhys.main()
+
 
     window.Close()

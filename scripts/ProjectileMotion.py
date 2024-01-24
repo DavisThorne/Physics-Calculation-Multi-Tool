@@ -19,11 +19,11 @@ def main():
 
     layout = [
         [sg.Text('Enter the mass of the object'), sg.InputText(key="-mass-")],
-        [sg.Text('Enter the Velocity of the object'), sg.InputText()],
-        [sg.Text('Enter the Initial angle of launch'), sg.InputText()],
-        [sg.Text('Enter the drag coefficient'), sg.InputText()],
-        [sg.Text('Enter the gravitational constant of your choosing'), sg.InputText()],
-        [sg.Text('Enter the time interval of measurement'), sg.InputText()],
+        [sg.Text('Enter the Velocity of the object'), sg.InputText(key="-velocity-")],
+        [sg.Text('Enter the Initial angle of launch'), sg.InputText(key="-angle-")],
+        [sg.Text('Enter the drag coefficient (0 for no drag)'), sg.InputText(key="-drag-")],
+        [sg.Text('Enter the gravitational constant of your choosing'), sg.InputText(key="-gravity-")],
+        [sg.Text('Enter the time interval of measurement'), sg.InputText(key="-dt-")],
         [sg.Button('Calculate'), sg.Button('Show Graph'), sg.Button('Close Graph'), sg.Button('Exit')]
     ]
 
@@ -47,17 +47,17 @@ def calcLoop(window, plt, ):
             openWindow(layout, )
 
             try:
-                M = float(values[0])
-                V = float(values[1])
-                ang = float(values[2])
-                Cd = float(values[3])
-                g = float(values[4])
-                dt = float(values[5])
+                M = float(values["-mass-"])
+                V = float(values["-velocity-"])
+                ang = float(values["-angle-"])
+                Cd = float(values["-drag-"])
+                g = float(values["-gravity-"])
+                dt = float(values["-dt-"])
 
             except KeyboardInterrupt:
                 print("interrupted")
 
-            except:
+            except TypeError:
                 print("Please enter valid values")
                 main()
 
